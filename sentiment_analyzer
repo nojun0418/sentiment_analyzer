@@ -1,0 +1,16 @@
+from transformers import pipeline
+
+sentiment_analyzer = pipeline("sentiment-analysis")
+
+texts = [
+    "I love studying computer science! It's so fascinating.",
+    "I'm feeling quite stressed about the upcoming exams.",
+    "This lab task is interesting and challenging at the same time."
+]
+
+results = sentiment_analyzer(texts)
+
+for text, result in zip(texts, results):
+    print(f"Text: {text}")
+    print(f"Sentiment: {result['label']}, Score: {result['score']:.4f}")
+    print("-" * 50)
